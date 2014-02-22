@@ -11,10 +11,10 @@
         <java-version>1.7</java-version>
         <org.springframework-version>4.0.1.RELEASE</org.springframework-version>
         <org.aspectj-version>1.6.9</org.aspectj-version>
-        <org.slf4j-version>1.5.10</org.slf4j-version>
+        <org.slf4j-version>1.7.6</org.slf4j-version>
     </properties>
     <build>
-        <finalName>member-api</finalName>
+        <finalName>public-library</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -41,8 +41,32 @@
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${org.springframework-version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>${org.springframework-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>${org.slf4j-version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${org.slf4j-version}</version>
+            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
@@ -53,6 +77,13 @@
             <groupId>de.neuland-bfi</groupId>
             <artifactId>spring-jade4j</artifactId>
             <version>0.4.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
