@@ -1,2 +1,2 @@
-member-api
+public-library
 ==========
